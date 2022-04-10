@@ -1,0 +1,99 @@
+package application;
+
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+
+import javafx.application.Platform;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
+import javafx.scene.control.Button;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.GridPane;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
+import javafx.scene.text.Text;
+import javafx.util.StringConverter;
+import javafx.collections.FXCollections;
+import node.*;
+
+public class CreateAccount extends GridPane{
+	
+	Button btnNAccount = new Button();
+	Button btnExit = new Button();
+	TextField INPUT_fname;
+	TextField INPUT_lname; 
+	TextField INPUT_dob;
+	TextField INPUT_pwd;
+	TextArea txtA;
+	DatePicker cal;
+	LocalDate date;
+	
+	
+	
+public CreateAccount (int width, int height) {
+	
+		// Labels
+		Text f_name = new Text("First Name:");
+		Text l_name = new Text("Last Name: ");
+		Text dob = new Text("Date of Birth: ");
+		Text pwd = new Text("Enter your password: ");
+		//Text chOS = new Text("Chequing or Savings: ");
+		
+		// Text fields for user name and password
+		INPUT_fname = new TextField(); 
+//		INPUT_fname.setOnAction((event) -> {
+//			p.setfName(INPUT_fname.getText());
+//		});
+		INPUT_lname = new TextField();  
+//		INPUT_lname.setOnAction((event) -> {
+//			p.setlName(INPUT_lname.getText());
+//		});
+		//INPUT_dob = new TextField(); 
+		cal = new DatePicker(date);
+		
+		cal.getEditor().setDisable(true);
+
+		INPUT_pwd = new TextField(); 
+		
+//		TextField checkOrSav = new TextField(); 
+		
+		txtA = new TextArea();
+		// Grid pane
+		this.setMinSize(width, height);
+
+		this.setPadding(new Insets(10, 10, 10, 10));
+		
+		this.setVgap(5);
+		this.setHgap(5);
+		
+		this.setAlignment(Pos.CENTER);
+		
+		// Adding to grid
+		this.add(f_name, 0, 0);
+		this.add(INPUT_fname, 1, 0);
+		
+		this.add(l_name, 0, 1);
+		this.add(INPUT_lname, 1, 1);
+		
+		this.add(dob, 0, 2);
+		this.add(cal, 1, 2);
+		
+		this.add(pwd, 0, 3);
+		this.add(INPUT_pwd, 1, 3);
+		
+//		this.add(chOS, 0, 4);
+//		this.add(checkOrSav, 1, 4);
+		
+		this.add(txtA, 0, 5);
+		
+		btnNAccount = new Button("Create Account");
+		this.add(btnNAccount, 1, 4);
+		
+		
+		btnExit = new Button("End Session");
+		this.add(btnExit, 1, 8);
+	}
+}
